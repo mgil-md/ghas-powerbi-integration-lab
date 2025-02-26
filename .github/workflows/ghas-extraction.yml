@@ -37,7 +37,7 @@ jobs:
           # The name of the repository, organization or enterprise to generate the report for. 
           # If SCOPE_NAME is not set, the value of GITHUB_REPOSITORY is used if it is set. If neither is set, an error occurs.
           # GITHUB_REPOSITORY: 
-          SCOPE_NAME: "GHAS Data Extraction Lab"
+          SCOPE_NAME: "ghas-powerbi-integration-lab"
           
           # A comma-separated list of features to include in the report. 
           # Valid values are codescanning, secretscanning, dependabot or simply all. Default value: all
