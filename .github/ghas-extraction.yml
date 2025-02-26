@@ -1,0 +1,82 @@
+name: GHAS Data Extraction
+on:
+  schedule:
+    - cron: '* */10 * * *'  # Weekly at 22:30 UTC on Mondays
+  # Enable you to run manually
+  workflow_dispatch:
+
+# Enable the action to write the final dataset to repository
+permissions:
+  contents: write
+  
+jobs:
+  # Get data from GHAs APIs
+  data_gathering:
+    runs-on: ubuntu-latest
+    steps:
+      # Export the data to csv format 
+      # check the action documentation for more information ion how to use it 
+      # https://github.com/marketplace/actions/github-advanced-security-api-to-csv
+      - name: CSV export
+        uses: advanced-security/ghas-to-csv@v3
+        env:
+          # The URL of the GitHub API. Default value: https://api.github.com.
+          # GITHUB_API_URL: "https://api.github.com"
+
+          # The URL of the GitHub server. Default value: https://github.com
+          # GITHUB_SERVER_URL: "https://github.com"
+
+          # The personal access token (PAT) or token for authenticating with the GitHub API. 
+          # If GITHUB_PAT is not set, the value of GITHUB_TOKEN is used if it is set. If neither is set, an error occurs.
+          # GITHUB_TOKEN: 
+          GITHUB_PAT: ${{ secrets.PAT }}
+
+          # The scope of the report to generate. Valid values are repository (default), organization or enterprise
+          GITHUB_REPORT_SCOPE: "organization"
+
+          # The name of the repository, organization or enterprise to generate the report for. 
+          # If SCOPE_NAME is not set, the value of GITHUB_REPOSITORY is used if it is set. If neither is set, an error occurs.
+          # GITHUB_REPOSITORY: 
+          SCOPE_NAME: "GHAS Data Extraction Lab"
+          
+          # A comma-separated list of features to include in the report. 
+          # Valid values are codescanning, secretscanning, dependabot or simply all. Default value: all
+          # FEATURES: all
+      
+      # Upload the csv so you can use it on the next job
+      - name: Upload CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: ghas-data
+          path: ${{ github.workspace }}/*.csv
+          if-no-files-found: error
+ 
+  # Transform the csv into a 'flatten table'
+  flat_data:
+    runs-on: ubuntu-latest
+    needs: [data_gathering]
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: Download CSVs
+        uses: actions/download-artifact@v4
+        with:
+          name: ghas-data
+      # `githubocto/flat` works only with HTTP and SQL so to be able.
+      # To use it we need to create a small server so we can consume the csv file from a http source
+      - name: Tiny http server moment  \
+        run: |
+          docker run -d -p 8000:80 --read-only -v $(pwd)/nginx-cache:/var/cache/nginx -v $(pwd)/nginx-pid:/var/run -v $(pwd):/usr/share/nginx/html:ro nginx
+          sleep 10
+      # Flat the code scanning alerts
+      - name: Flat the code scanning alerts
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8000/cs_list.csv
+          downloaded_filename: cs_list.csv
+      # Flat the secret scanning alerts
+      - name: Flat the secret scanning alerts
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8000/secrets_list.csv
+          downloaded_filename: secrets_list.csv
