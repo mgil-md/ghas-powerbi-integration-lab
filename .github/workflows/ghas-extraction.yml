@@ -32,12 +32,12 @@ jobs:
           GITHUB_PAT: ${{ secrets.PAT }}
 
           # The scope of the report to generate. Valid values are repository (default), organization or enterprise
-          GITHUB_REPORT_SCOPE: "organization"
+          GITHUB_REPORT_SCOPE: "repository"
 
           # The name of the repository, organization or enterprise to generate the report for. 
           # If SCOPE_NAME is not set, the value of GITHUB_REPOSITORY is used if it is set. If neither is set, an error occurs.
           # GITHUB_REPOSITORY: 
-          SCOPE_NAME: "mgil-md"
+          SCOPE_NAME: "juice-shop"
           
           # A comma-separated list of features to include in the report. 
           # Valid values are codescanning, secretscanning, dependabot or simply all. Default value: all
