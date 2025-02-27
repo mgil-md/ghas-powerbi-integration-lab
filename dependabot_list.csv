@@ -1,0 +1,14 @@
+number,state,created_at,updated_at,fixed_at,dismissed_at,dismissed_by,dismissed_reason,html_url,dependency_manifest,dependency_ecosystem,dependency_name,severity,ghsa_id,cve_id,cvss_score
+13,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/13,package.json,npm,socket.io,medium,GHSA-25hc-qcg6-38wj,CVE-2024-38355,7.3
+12,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/12,package.json,npm,sanitize-html,high,GHSA-cgfm-xwp7-2cvr,CVE-2022-25887,7.5
+11,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/11,package.json,npm,sanitize-html,medium,GHSA-rm97-x556-q36h,CVE-2024-21501,5.3
+10,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/10,package.json,npm,jsonwebtoken,medium,GHSA-qwph-4952-7xr6,CVE-2022-23540,6.4
+9,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/9,package.json,npm,jsonwebtoken,medium,GHSA-hjrf-2m68-5959,CVE-2022-23541,5.0
+8,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/8,package.json,npm,jsonwebtoken,high,GHSA-8cf7-32gw-wr33,CVE-2022-23539,8.1
+7,open,2025-02-27T14:46:07Z,2025-02-27T14:46:07Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/7,package.json,npm,sanitize-html,medium,GHSA-rjqq-98f6-6j3r,CVE-2021-26539,5.3
+6,open,2025-02-27T14:46:06Z,2025-02-27T14:46:06Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/6,package.json,npm,sanitize-html,medium,GHSA-mjxr-4v3x-q3m4,CVE-2021-26540,5.3
+5,open,2025-02-27T14:46:06Z,2025-02-27T14:46:06Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/5,package.json,npm,marsdb,critical,GHSA-5mrr-rgp6-x4gr,,0.0
+4,open,2025-02-27T14:46:06Z,2025-02-27T14:46:06Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/4,package.json,npm,express-jwt,high,GHSA-6g6m-m6h5-w9gf,CVE-2020-15084,7.7
+3,open,2025-02-27T14:46:06Z,2025-02-27T14:46:06Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/3,package.json,npm,sanitize-html,medium,GHSA-3j7m-hmh3-9jmp,CVE-2016-1000237,6.1
+2,open,2025-02-27T14:46:06Z,2025-02-27T14:46:06Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/2,package.json,npm,sanitize-html,medium,GHSA-xc6g-ggrc-qq4r,CVE-2017-16016,0.0
+1,open,2025-02-27T14:46:06Z,2025-02-27T14:46:06Z,,,,,https://github.com/mgil-md/juice-shop/security/dependabot/1,package.json,npm,jsonwebtoken,critical,GHSA-c7hr-j4mj-j2w6,CVE-2015-9235,0.0
