@@ -21,7 +21,7 @@ jobs:
         uses: advanced-security/ghas-to-csv@v3
         env:
           # The URL of the GitHub API. Default value: https://api.github.com.
-          GITHUB_API_URL: "https://api.github.com/repos/mgil-md"
+          # GITHUB_API_URL: "https://api.github.com"
 
           # The URL of the GitHub server. Default value: https://github.com
           # GITHUB_SERVER_URL: "https://github.com"
