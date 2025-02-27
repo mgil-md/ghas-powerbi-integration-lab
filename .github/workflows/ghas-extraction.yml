@@ -1,7 +1,7 @@
 name: GHAS Data Extraction
 on:
   schedule:
-    - cron: '* */10 * * *'  # Weekly at 22:30 UTC on Mondays
+    - cron: '30 22 * * 1'  # Weekly at 22:30 UTC on Mondays
   # Enable you to run manually
   workflow_dispatch:
 
